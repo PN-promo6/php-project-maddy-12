@@ -1,3 +1,65 @@
+<?php
+
+use Entity\Post;
+use Entity\User;
+use Entity\Type;
+
+require '../vendor/autoload.php';
+
+//////////////////////////////////  ADD TYPES ////////////////////////////
+//Add painting type1
+$waterColor = new Type();
+$waterColor->id = 1;
+$waterColor->name = "Watercolor";
+
+//Add painting type2
+$oilPaint = new Type();
+$oilPaint->id = 2;
+$oilPaint->name = "Oil painting";
+
+//////////////////////////////// ADD USERS ///////////////////////////////
+//Add user1
+$userRicchi = new User();
+$userRicchi->id = 1;
+$userRicchi->nickname = "Ricchi";
+$userRicchi->password = "12ririri";
+$userRicchi->email = "ricchi@gmail.com";
+
+//Add user2
+$userMadmady = new User();
+$userMadmady->id = 2;
+$userMadmady->nickname = "Madmady";
+$userMadmady->password = "93mmmm";
+$userMadmady->email = "mad-mady@gmail.com";
+
+////////////////////////////////// ADD  POSTS ///////////////////////////////////
+
+//Add post1
+$post1 = new Post();
+$post1->id = 1;
+$post1->user = $userRicchi;
+$post1->title = "Lady";
+$post1->image = 'https://cdn.pixabay.com/photo/2017/04/02/16/58/man-2196323_960_720.jpg';
+$post1->description = "Illustration done for a client who wanted to use it as gift last month ";
+$post1->posted_time = time();
+$post1->type = $oilPaint;
+$post1->price = "25€";
+
+//Add post2
+$post2 = new Post();
+$post2->id = 2;
+$post2->user = $userMadmady;
+$post2->title = "Maison";
+$post2->image = 'https://cdn.pixabay.com/photo/2015/03/30/11/01/paintings-698290_960_720.jpg';
+$post2->description = "Illustration done for a client who wanted to use it as gift last month ";
+$post2->posted_time = time();
+$post2->type = $waterColor;
+$post2->price = "35€";
+
+// ... other objects creations
+$items = array($post1, $post2);
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -74,7 +136,7 @@
                     <button type="button" class="btn btn-dark">Contact me</button>
                 </div>
                 <div class="card mb-4 mr-3">
-                    <img src="https://images.unsplash.com/photo-1523554888454-84137e72c3ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="card-img-top" alt="...">
+                    <img src="https://cdn.pixabay.com/photo/2017/04/02/16/58/man-2196323_960_720.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
