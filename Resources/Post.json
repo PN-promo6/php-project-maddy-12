@@ -1,4 +1,5 @@
-[{
+[
+    {
         "id": 1,
         "user": 1,
         "title": "Lady",
@@ -31,11 +32,11 @@
     {
         "id": 4,
         "user": 4,
-        "title": "Lady",
-        "image": "https://cdn.pixabay.com/photo/2017/04/02/16/58/man-2196323_960_720.jpg",
+        "title": "Fox",
+        "image": "https://cdn.pixabay.com/photo/2018/12/17/01/35/nature-3879646_960_720.jpg",
         "description": "Illustration done for a client who wanted to use it as gift last month",
         "postedTime": "time()",
-        "type": 3,
+        "type": 1,
         "price": "25€"
     },
     {

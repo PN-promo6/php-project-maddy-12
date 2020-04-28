@@ -1,4 +1,5 @@
-[{
+[
+    {
         "id": 1,
         "nickname": "Ricchi",
         "password": "12ririri",
@@ -54,8 +55,8 @@
     },
     {
         "id": 10,
-        "nickname": "fengju",
+        "nickname": "aymen",
         "password": "12ririri",
-        "email": "fengju@gmail.com"
+        "email": "aymen@gmail.com"
     }
 ]

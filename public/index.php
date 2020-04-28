@@ -1,12 +1,18 @@
 <?php
 
 use Entity\Post;
+use Entity\Type;
 use ludk\Persistence\ORM;
 
 require __DIR__ . '/../vendor/autoload.php';
 $orm = new ORM(__DIR__ . '/../Resources');
 $postRepo = $orm->getRepository(Post::class);
-$items = $postRepo->findAll();
+$items = array();
+if (isset($_GET['search'])) {
+    $items = $postRepo->findBy(array("title" => $_GET['search']));
+} else {
+    $items = $postRepo->findAll();
+}
 
 //////////////////////////////////  ADD TYPES ////////////////////////////
 //Add painting type1
