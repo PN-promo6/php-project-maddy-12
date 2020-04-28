@@ -1,8 +1,7 @@
-[
-    {
+[{
         "id": 1,
-        "nickname ": "Ricchi",
-        "password ": "12ririri",
+        "nickname": "Ricchi",
+        "password": "12ririri",
         "email": "ricchi@gmail.com"
     },
     {
@@ -49,6 +48,12 @@
     },
     {
         "id": 9,
+        "nickname": "fengju",
+        "password": "12ririri",
+        "email": "fengju@gmail.com"
+    },
+    {
+        "id": 10,
         "nickname": "fengju",
         "password": "12ririri",
         "email": "fengju@gmail.com"
