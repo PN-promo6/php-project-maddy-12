@@ -11,6 +11,7 @@ namespace Entity;
 
 use Entity\Type;
 use Entity\User;
+use ludk\Utils\Serializer;
 
 class Post
 {
@@ -22,4 +23,6 @@ class Post
     public $postedTime;
     public User $user;
     public Type $type;
+
+    use Serializer;
 }

@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "nickname ": "Ricchi",
+        "password ": "12ririri",
+        "email": "ricchi@gmail.com"
+    },
+    {
+        "id": 2,
+        "nickname": "Madmady",
+        "password": "12ririri",
+        "email": "Madmady@gmail.com"
+    },
+    {
+        "id": 3,
+        "nickname": "yona",
+        "password": "12ririri",
+        "email": "yona@gmail.com"
+    },
+    {
+        "id": 4,
+        "nickname": "lily",
+        "password": "12ririri",
+        "email": "lily@gmail.com"
+    },
+    {
+        "id": 5,
+        "nickname": "michael",
+        "password": "12ririri",
+        "email": "michael@gmail.com"
+    },
+    {
+        "id": 6,
+        "nickname": "Aya",
+        "password": "12ririri",
+        "email": "Aya@gmail.com"
+    },
+    {
+        "id": 7,
+        "nickname": "noah",
+        "password": "12ririri",
+        "email": "noah@gmail.com"
+    },
+    {
+        "id": 8,
+        "nickname": "claude",
+        "password": "12ririri",
+        "email": "claude@gmail.com"
+    },
+    {
+        "id": 9,
+        "nickname": "fengju",
+        "password": "12ririri",
+        "email": "fengju@gmail.com"
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Watercolor"
+    },
+    {
+        "id": 2,
+        "name": "Oil painting"
+    },
+    {
+        "id": 3,
+        "name": "Digital art"
+    },
+    {
+        "id": 4,
+        "name": "Acrylic"
+    },
+    {
+        "id": 5,
+        "name": "Pastel"
+    },
+    {
+        "id": 6,
+        "name": "Spray "
+    },
+    {
+        "id": 7,
+        "name": "Gouache"
+    }
+]
