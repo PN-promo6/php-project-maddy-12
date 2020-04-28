@@ -130,42 +130,40 @@ $items = array($post1, $post2, $post3, $post2, $post1, $post3, $post1, $post2, $
     <!-- row1 -->
 
     <div class="row mt-5">
-        <div class="col-lg-12 d-flex justify-center">
-            <div class="col-lg-12 d-flex justify-center">
-                <?php
-                //Loop for the cards
-                $i = 0;
+        <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-center">
+            <?php
+            //Loop for the cards
+            $i = 0;
 
-                foreach ($items as $item) {
-                    //Go to the next row when the previous row has 3 cards
-                    if ($i % 3 == 0) {
-                        echo '</div></div></div><div class="row mt-5"><div class="col-lg-12 d-flex justify-center"><div class="col-lg-12 d-flex justify-center">';
-                    }
-                ?>
-                    <!-- putting the card here is as if we put an echo inside the loop  -->
-                    <div class="card mb-4 mr-3 p-0">
-                        <img src="<?php echo $item->image; ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $item->title; ?></h5>
-                            <p class="card-text">
-                                <ul>
-                                    <li>Artist : <?php echo $item->user->nickname; ?></li>
-                                    <li>Description : <?php echo $item->description; ?> </li>
-                                    <li>Tarifs : <?php echo $item->price; ?> </li>
-                                    <li>Type : <?php echo $item->type->name; ?> </li>
-                                </ul>
-                            </p>
-
-                        </div>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <button type="button" class="btn btn-dark">Contact me</button>
-                    </div>
-                <?php
-                    //incrementation of the cards in each row (after this we go to the if ($i % 3 ==0) part)
-                    $i++;
+            foreach ($items as $item) {
+                //Go to the next row when the previous row has 3 cards
+                if ($i % 3 == 0) {
+                    echo '</div></div></div><div class="row mt-5"><div class="col-lg-12 d-flex justify-center"><div class="col-lg-12 d-flex justify-center">';
                 }
-                ?>
-            </div>
+            ?>
+                <!-- putting the card here is as if we put an echo inside the loop  -->
+                <div class="card mb-4 mr-3 p-0">
+                    <img src="<?php echo $item->image; ?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $item->title; ?></h5>
+                        <p class="card-text">
+                            <ul>
+                                <li>Artist : <?php echo $item->user->nickname; ?></li>
+                                <li>Description : <?php echo $item->description; ?> </li>
+                                <li>Tarifs : <?php echo $item->price; ?> </li>
+                                <li>Type : <?php echo $item->type->name; ?> </li>
+                            </ul>
+                        </p>
+
+                    </div>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <button type="button" class="btn btn-dark">Contact me</button>
+                </div>
+            <?php
+                //incrementation of the cards in each row (after this we go to the if ($i % 3 ==0) part)
+                $i++;
+            }
+            ?>
         </div>
     </div>
 
