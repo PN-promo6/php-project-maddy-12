@@ -85,21 +85,22 @@ $items = array($post1, $post2, $post3, $post2, $post1, $post3, $post1, $post2, $
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?time=<?php echo time(); ?>">
     <title>Artists cave</title>
 </head>
 
 <body>
     <header>
         <img src="assets/painting-911804_1920.png" alt="">
-
     </header>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -114,7 +115,8 @@ $items = array($post1, $post2, $post3, $post2, $post1, $post3, $post1, $post2, $
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown link
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -128,22 +130,20 @@ $items = array($post1, $post2, $post3, $post2, $post1, $post3, $post1, $post2, $
     </nav>
 
     <!-- row1 -->
-
-    <div class="row mt-5">
-        <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-center">
+    <div class="container">
+        <div class="row">
             <?php
             //Loop for the cards
             $i = 0;
-
             foreach ($items as $item) {
                 //Go to the next row when the previous row has 3 cards
-                if ($i % 3 == 0) {
-                    echo '</div></div></div><div class="row mt-5"><div class="col-lg-12 d-flex justify-center"><div class="col-lg-12 d-flex justify-center">';
+                if ($i % 3 == 0 && $i > 0) {
+                    echo '</div><div class="row">';
                 }
             ?>
-                <!-- putting the card here is as if we put an echo inside the loop  -->
-                <div class="card mb-4 mr-3 p-0">
-                    <img src="<?php echo $item->image; ?>" class="card-img-top" alt="...">
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="<?php echo $item->image; ?>" class="img-fluid" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $item->title; ?></h5>
                         <p class="card-text">
@@ -159,6 +159,7 @@ $items = array($post1, $post2, $post3, $post2, $post1, $post3, $post1, $post2, $
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <button type="button" class="btn btn-dark">Contact me</button>
                 </div>
+            </div>
             <?php
                 //incrementation of the cards in each row (after this we go to the if ($i % 3 ==0) part)
                 $i++;
@@ -166,16 +167,18 @@ $items = array($post1, $post2, $post3, $post2, $post1, $post3, $post1, $post2, $
             ?>
         </div>
     </div>
-
     <!-- Contenu -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 </body>
 

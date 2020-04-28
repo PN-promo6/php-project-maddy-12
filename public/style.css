@@ -1,3 +1,11 @@
 body {
-background-color:#03041D;
+    background-color: #03041D;
+}
+
+.row {
+    margin-top: 45px;
+}
+
+header img {
+    width: 100%;
 }
