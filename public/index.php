@@ -5,8 +5,32 @@ use Entity\Type;
 use ludk\Persistence\ORM;
 
 require __DIR__ . '/../vendor/autoload.php';
+session_start();
 $orm = new ORM(__DIR__ . '/../Resources');
 $postRepo = $orm->getRepository(Post::class);
+//recup le manager 
+$manager = $orm->getManager();
+//On choisi le post à modifier
+$post = $postRepo->find(1);
+//On modifie le titre du post 1
+$post->title = "test";
+$manager->persist($post);
+
+//Créer un new post 
+$newPost = new Post();
+$newPost->title = "Earth";
+$newPost->description = "our planet";
+$newPost->user = $post->user;
+$newPost->price = "40€";
+$newPost->type = $post->type;
+$newPost->image = "https://images.unsplash.com/flagged/photo-1585324853527-1c567d53bb72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2038&q=80";
+$newPost->postedTime = time();
+
+$manager->persist($newPost);
+
+$manager->flush();
+
+//Search feature
 $items = array();
 if (isset($_GET['search'])) {
     $items = $postRepo->findBy(array("title" => $_GET['search']));
@@ -14,74 +38,6 @@ if (isset($_GET['search'])) {
     $items = $postRepo->findAll();
 }
 
-//////////////////////////////////  ADD TYPES ////////////////////////////
-//Add painting type1
-// $waterColor = new Type();
-// $waterColor->id = 1;
-// $waterColor->name = "Watercolor";
-
-//Add painting type2
-// $oilPaint = new Type();
-// $oilPaint->id = 2;
-// $oilPaint->name = "Oil painting";
-
-//Add painting type2
-// $digitalArt = new Type();
-// $digitalArt->id = 3;
-// $digitalArt->name = "Digital art";
-
-//////////////////////////////// ADD USERS ///////////////////////////////
-//Add user1
-// $userRicchi = new User();
-// $userRicchi->id = 1;
-// $userRicchi->nickname = "Ricchi";
-// $userRicchi->password = "12ririri";
-// $userRicchi->email = "ricchi@gmail.com";
-
-//Add user2
-// $userMadmady = new User();
-// $userMadmady->id = 2;
-// $userMadmady->nickname = "Madmady";
-// $userMadmady->password = "93mmmm";
-// $userMadmady->email = "mad-mady@gmail.com";
-
-////////////////////////////////// ADD  POSTS ///////////////////////////////////
-
-//Add post1
-// $post1 = new Post();
-// $post1->id = 1;
-// $post1->user = $userRicchi;
-// $post1->title = "Lady";
-// $post1->image = 'https://cdn.pixabay.com/photo/2017/04/02/16/58/man-2196323_960_720.jpg';
-// $post1->description = "Illustration done for a client who wanted to use it as gift last month ";
-// $post1->posted_time = time();
-// $post1->type = $waterColor;
-// $post1->price = "25€";
-
-//Add post2
-// $post2 = new Post();
-// $post2->id = 2;
-// $post2->user = $userMadmady;
-// $post2->title = "Maison";
-// $post2->image = 'https://cdn.pixabay.com/photo/2015/03/30/11/01/paintings-698290_960_720.jpg';
-// $post2->description = "Illustration done for a client who wanted to use it as gift last month ";
-// $post2->posted_time = time();
-// $post2->type = $oilPaint;
-// $post2->price = "35€";
-
-//Add post3
-// $post3 = new Post();
-// $post3->id = 3;
-// $post3->user = $userMadmady;
-// $post3->title = "Music";
-// $post3->image = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4cf9906a-ff47-41e0-9b64-a1f1773044a4/d7k903e-55edefc7-e41c-4b6c-9cf5-d27189689301.jpg/v1/fill/w_600,h_450,q_75,strp/music_pulse_by_ritsu_mady_d7k903e-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDUwIiwicGF0aCI6IlwvZlwvNGNmOTkwNmEtZmY0Ny00MWUwLTliNjQtYTFmMTc3MzA0NGE0XC9kN2s5MDNlLTU1ZWRlZmM3LWU0MWMtNGI2Yy05Y2Y1LWQyNzE4OTY4OTMwMS5qcGciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.V52E3JMtSzFD8fbDNt8csROujc3HNJA4C-p4TTnwzNY';
-// $post3->description = "Illustration done for a client who wanted to use it as gift last month ";
-// $post3->posted_time = time();
-// $post3->type = $digitalArt;
-// $post3->price = "15€";
-
-// ... other objects creations
-// $items = array($post1, $post2, $post3, $post2, $post1, $post3, $post1, $post2, $post3, $post2, $post1, $post2, $post1, $post2);
 ?>
 
 <!doctype html>
@@ -104,8 +60,8 @@ if (isset($_GET['search'])) {
         <img src="assets/painting-911804_1920.png" alt="">
     </header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
+        <a class="navbar-brand" href="#">Artists cave</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -114,23 +70,14 @@ if (isset($_GET['search'])) {
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <button type="button" class="btn btn-outline-info">Sign Up</button>
+            <button type="button" class="btn btn-outline-secondary">Sign In</button>
         </div>
     </nav>
 

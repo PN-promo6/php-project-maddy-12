@@ -15,12 +15,12 @@ use ludk\Utils\Serializer;
 
 class Post
 {
-    public $id;
-    public $image;
-    public $title;
-    public $description;
-    public $price;
-    public $postedTime;
+    public int $id;
+    public string $image;
+    public string $title;
+    public string $description;
+    public string $price;
+    public string $postedTime;
     public User $user;
     public Type $type;
 

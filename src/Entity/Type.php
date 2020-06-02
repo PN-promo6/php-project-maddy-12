@@ -6,7 +6,7 @@ use ludk\Utils\Serializer;
 
 class Type
 {
-    public $id;
-    public $name;
+    public int $id;
+    public string $name;
     use Serializer;
 }
