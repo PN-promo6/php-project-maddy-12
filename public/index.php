@@ -10,6 +10,7 @@ session_start();
 
 //Repository (permet de recupérer les données)
 $orm = new ORM(__DIR__ . '/../Resources');
+$manager = $orm->getManager();
 $postRepo = $orm->getRepository(Post::class);
 $userRepo = $orm->getRepository(User::class);
 $typeRepo = $orm->getRepository(Type::class);
