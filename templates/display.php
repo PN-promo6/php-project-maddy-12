@@ -43,7 +43,7 @@
                             <a class="nav-link" href="?action=login" role="button">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?action=register" role="button">Sign Up</a>
+                            <a class="nav-link" href="?action=register" role="button">Register</a>
 
                         </li>
                     <?php  } ?>
