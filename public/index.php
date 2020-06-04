@@ -6,7 +6,7 @@ use Entity\Type;
 use ludk\Persistence\ORM;
 
 require __DIR__ . '/../vendor/autoload.php';
-// session_start();
+session_start();
 
 //Repository (permet de recupérer les données)
 $orm = new ORM(__DIR__ . '/../Resources');
