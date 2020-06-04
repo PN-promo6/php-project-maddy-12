@@ -13,6 +13,7 @@ $orm = new ORM(__DIR__ . '/../Resources');
 $postRepo = $orm->getRepository(Post::class);
 $userRepo = $orm->getRepository(User::class);
 $typeRepo = $orm->getRepository(Type::class);
+
 //recup le manager (permet d'edit les données)
 // $manager = $orm->getManager();
 //On choisi le post à modifier
@@ -39,22 +40,34 @@ $action = $_GET["action"] ?? "display";
 switch ($action) {
     case 'register':
         break;
+        //LOGOUT
     case 'logout':
-        break;
-    case 'login':
-        if (isset($_POST['username']) && isset($_POST['password'])) {
-            $users = GetUserIdFromUserAndPassword($_POST['username'], $_POST['password']);
-            if (count($users == 1) {
-              $_SESSION['userId'] = $userq[0]->id;
-              header('Location: ?action=display');
-            } else {
-              $errorMsg = "Wrong login and/or password.";
-              include "../views/LoginForm.php";
-            }
-          } else {
-            include "../views/LoginForm.php";
+        if (isset($_SESSION['user'])) {
+            unset($_SESSION['user']);
+        }
+        header('Location: ?action=display');
         break;
 
+    case 'login':
+        if (isset($_POST['username']) && isset($_POST['password'])) {
+            $usersWithThisLogin = $userRepo->findBy(array("nickname" => $_POST['username']));
+            if (count($usersWithThisLogin) == 1) {
+                $firstUserWithThisLogin = $usersWithThisLogin[0];
+                if ($firstUserWithThisLogin->password != md5($_POST['password'])) {
+                    $errorMsg = "Wrong password.";
+                    include "../templates/login.php";
+                } else {
+                    $_SESSION['user'] = $usersWithThisLogin[0];
+                    header('Location:/?action=display');
+                }
+            } else {
+                $errorMsg = "Nickname doesn't exist.";
+                include "../templates/login.php";
+            }
+        } else {
+            include "../templates/login.php";
+        }
+        break;
     case 'new':
         break;
     case 'display':
@@ -65,7 +78,7 @@ switch ($action) {
             $search = $_GET['search'];
 
             if (strpos($search, "@") === 0) {
-                $userRepo = $orm->getRepository(User::class);
+
                 //permet de decider quelle partie du string on veut passer en url
                 $nickname = substr($search, 1);
                 $users = $userRepo->findBy(array("nickname" => $nickname));
@@ -80,6 +93,6 @@ switch ($action) {
         } else {
             $items = $postRepo->findAll();
         }
+        include '../templates/display.php';
         break;
 }
-include '../templates/display.php';

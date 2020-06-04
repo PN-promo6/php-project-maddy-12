@@ -9,36 +9,52 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?time=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/style.css?time=<?php echo time(); ?>">
     <title>Artists cave</title>
 </head>
 
 <body>
     <header>
-        <img src="assets/painting-911804_1920.png" alt="">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
+            <a class="navbar-brand" href="#">Artists cave</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <form class="nav-link" method="get">
+                            <input name="search" type="text"></input>
+                        </form>
+                    </li>
+                    <!-- ******************LOGIN & LOGOUT************************ -->
+                    <?php
+                    // If the user is logged in -> hide "login" and"sign up" = show "logout"
+                    if (isset($_SESSION['user'])) {
+                    ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?action=logout" role="button">Logout</a>
+                        </li>
+                    <?php
+                        //If not logged in -> show the login & suign up buttons
+                    } else {
+                    ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?action=login" role="button">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?action=register" role="button">Sign Up</a>
+
+                        </li>
+                    <?php  } ?>
+
+                </ul>
+
+            </div>
+        </nav>
+        <!-- <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a060e017-039d-4cad-b3dc-b33dbdaf563d/d4mjtv0-7e2cf1f4-ffb4-4e08-b41c-fe84c0564aa7.jpg/v1/fill/w_1024,h_639,q_75,strp/cave_by_zoriy_d4mjtv0-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD02MzkiLCJwYXRoIjoiXC9mXC9hMDYwZTAxNy0wMzlkLTRjYWQtYjNkYy1iMzNkYmRhZjU2M2RcL2Q0bWp0djAtN2UyY2YxZjQtZmZiNC00ZTA4LWI0MWMtZmU4NGMwNTY0YWE3LmpwZyIsIndpZHRoIjoiPD0xMDI0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.OnMGT_RJN-KAk89_owGx3Hq49P0BZLQkZKJrkmpoVnE" alt=""> -->
+
     </header>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
-        <a class="navbar-brand" href="#">Artists cave</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            <button type="button" class="btn btn-outline-info">Sign Up</button>
-            <button type="button" class="btn btn-outline-secondary">Sign In</button>
-        </div>
-    </nav>
-
     <!-- row1 -->
     <div class="container">
         <div class="row">

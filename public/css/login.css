@@ -1,0 +1,76 @@
+    body.loginPage
+    {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a060e017-039d-4cad-b3dc-b33dbdaf563d/d4mjtv0-7e2cf1f4-ffb4-4e08-b41c-fe84c0564aa7.jpg/v1/fill/w_1024,h_639,q_75,strp/cave_by_zoriy_d4mjtv0-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD02MzkiLCJwYXRoIjoiXC9mXC9hMDYwZTAxNy0wMzlkLTRjYWQtYjNkYy1iMzNkYmRhZjU2M2RcL2Q0bWp0djAtN2UyY2YxZjQtZmZiNC00ZTA4LWI0MWMtZmU4NGMwNTY0YWE3LmpwZyIsIndpZHRoIjoiPD0xMDI0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.OnMGT_RJN-KAk89_owGx3Hq49P0BZLQkZKJrkmpoVnE);
+    background-size: cover;
+    }
+    .box
+    {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    padding: 40px;
+    background: rgba(0,0,0,.8);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+    border-radius: 10px;
+    }
+    .box h2
+    {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    }
+    .box .inputBox
+    {
+    position: relative;
+    }
+    .box .inputBox input
+    {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    }
+    .box .inputBox label
+    {
+    position: absolute;
+    top: 0;
+    left: 0;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+    }
+    .box .inputBox input:focus ~ label,
+    .box .inputBox input:valid ~ label
+    {
+    top: -18px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 12px;
+    }
+    .box input[type="submit"]
+    {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #03a9f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    } 
