@@ -35,6 +35,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="?action=logout" role="button">Logout</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="?action=new" role="button">+</a>
+                        </li>
                     <?php
                         //If not logged in -> show the login & suign up buttons
                     } else {

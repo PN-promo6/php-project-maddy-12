@@ -119,8 +119,72 @@ switch ($action) {
             include "../templates/login.php";
         }
         break;
+
+        // CREATE A NEW POST
     case 'new':
+        $types = $typeRepo->findAll();
+
+        if (
+            isset($_SESSION['user'])
+            && isset($_POST['image'])
+            && isset($_POST['title'])
+            && isset($_POST['artist'])
+            && isset($_POST['description'])
+            && isset($_POST['price'])
+            && isset($_POST['type'])
+        ) {
+            $errorMsg = NULL;
+            //If the username exists already
+            $users = $userRepo->findBy(array("nickname" => $_POST['username']));
+
+            if (strlen(trim($_POST['image'])) == 0) {
+                //Show error message
+                $errorMsg = "Please put the URL link of the image";
+            } elseif (strlen(trim($_POST['title'])) == 0) {
+                $errorMsg = "Please put a title";
+
+                //artist
+            } elseif (strlen(trim($_POST['artist'])) == 0) {
+                $errorMsg = "Please put the name of the artist ";
+
+                //description
+            } else if (strlen(trim($_POST['description'])) == 0) {
+
+                $errorMsg = "Please write a description";
+
+                //price
+            } else if (strlen(trim($_POST['price'])) == 0) {
+
+                //Show error message
+                $errorMsg = "Please set the price";
+
+                //type
+            } else if (($_POST['type']) == "-") {
+
+                //Show error message
+                $errorMsg = "Please select a type";
+            }
+            if ($errorMsg) {
+                include "../templates/new.php";
+            } else {
+                //create a new post
+                $newPost = new Post();
+                $newPost->title = $_POST['title'];
+                $newPost->description = $_POST['description'];
+                $newPost->artist = $post->user;
+                $newPost->price = $_POST['price'];
+                $newPost->type = $post->type;
+                $newPost->image = $_POST['image'];
+                $newPost->postedTime = time();
+
+                $manager->persist($newPost);
+
+                $manager->flush();
+                header('Location: ?action=display');
+            }
+        }
         break;
+
     case 'display':
     default:
         $items = array();

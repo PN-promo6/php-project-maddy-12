@@ -36,7 +36,7 @@
             </div>
             <div class="inputBox">
 
-                <input type="password" class="form-control" name="passwordRetype" placeholder="" required>
+                <input type="password" name="passwordRetype" placeholder="" required>
                 <label>Retype your password:</label>
 
             </div>
