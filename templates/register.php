@@ -16,7 +16,7 @@
 <body class="loginPage">
     <div class="box">
         <h2>Register</h2>
-        <form class="form-signin" method="POST" action="?action=register">
+        <form class="form-signin" method="POST" action="/register">
             <?php
             if (isset($errorMsg)) {
                 echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";

@@ -18,7 +18,8 @@ $postRepo = $orm->getRepository(Post::class);
 $userRepo = $orm->getRepository(User::class);
 $typeRepo = $orm->getRepository(Type::class);
 
-$action = $_GET["action"] ?? "display";
+$action = substr(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), 1);
+
 switch ($action) {
 
         //******************** Register 

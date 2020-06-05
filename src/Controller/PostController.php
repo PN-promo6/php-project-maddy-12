@@ -58,7 +58,7 @@ class PostController
                 $manager->persist($newPost);
 
                 $manager->flush();
-                header('Location: ?action=display');
+                header('Location: display');
             }
         } else {
             include "../templates/new.php";

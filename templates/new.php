@@ -22,7 +22,7 @@
 
                 <h1> Add a new post </h1>
 
-                <form class="mt-5" method="post" action="?action=new">
+                <form class="mt-5" method="post" action="/new">
                     <?php
                     if (isset($errorMsg)) {
                         echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";
