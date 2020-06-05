@@ -15,12 +15,13 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
-            <a class="navbar-brand" href="#">Artists cave</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavDropdown">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div>
+                <a class="navbar-brand" href="#">
+                    <img src="../assets/logo.png" alt="">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <form class="nav-link" method="get">
