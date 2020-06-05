@@ -128,7 +128,6 @@ switch ($action) {
             isset($_SESSION['user'])
             && isset($_POST['image'])
             && isset($_POST['title'])
-            && isset($_POST['artist'])
             && isset($_POST['description'])
             && isset($_POST['price'])
             && isset($_POST['type'])
@@ -142,10 +141,6 @@ switch ($action) {
                 $errorMsg = "Please put a title";
 
                 //artist
-            } elseif (strlen(trim($_POST['artist'])) == 0) {
-                $errorMsg = "Please put the name of the artist ";
-
-                //description
             } else if (strlen(trim($_POST['description'])) == 0) {
 
                 $errorMsg = "Please write a description";
@@ -162,17 +157,17 @@ switch ($action) {
                 //Show error message
                 $errorMsg = "Please select a type";
             }
-            if ($errorMsg == null) {
+            if ($errorMsg != null) {
                 include "../templates/new.php";
             } else {
                 //create a new post
                 $newPost = new Post();
-
+                $currentType = $typeRepo->find($_POST['type']);
                 $newPost->title = $_POST['title'];
                 $newPost->description = $_POST['description'];
-                $newPost->artist = $post->user;
+                $newPost->user = $_SESSION['user'];
                 $newPost->price = $_POST['price'];
-                $newPost->type = $post->type;
+                $newPost->type = $currentType;
                 $newPost->image = $_POST['image'];
                 $newPost->postedTime = time();
 
