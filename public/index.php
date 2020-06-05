@@ -44,7 +44,7 @@ switch ($action) {
         $controller->create();
         break;
 
-        //****************** Default case
+        //****************** Default case: Display
     case 'display':
     default:
         $controller = new HomeController();
