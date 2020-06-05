@@ -8,37 +8,17 @@ use ludk\Persistence\ORM;
 require __DIR__ . '/../vendor/autoload.php';
 session_start();
 
-//Repository (permet de recupérer les données)
+//Repository (get the data)
 $orm = new ORM(__DIR__ . '/../Resources');
 $manager = $orm->getManager();
 $postRepo = $orm->getRepository(Post::class);
 $userRepo = $orm->getRepository(User::class);
 $typeRepo = $orm->getRepository(Type::class);
 
-//recup le manager (permet d'edit les données)
-// $manager = $orm->getManager();
-//On choisi le post à modifier
-// $post = $postRepo->find(1);
-//On modifie le titre du post 1
-// $post->title = "test";
-// $manager->persist($post);
-
-//Créer un new post 
-// $newPost = new Post();
-// $newPost->title = "Earth";
-// $newPost->description = "our planet";
-// $newPost->user = $post->user;
-// $newPost->price = "40€";
-// $newPost->type = $post->type;
-// $newPost->image = "https://images.unsplash.com/flagged/photo-1585324853527-1c567d53bb72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2038&q=80";
-// $newPost->postedTime = time();
-
-// $manager->persist($newPost);
-
-// $manager->flush();
-
 $action = $_GET["action"] ?? "display";
 switch ($action) {
+
+        //******************** Register 
     case 'register':
         //If user fill the username and password and retypes the correct password
         if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['passwordRetype'])) {
@@ -75,7 +55,7 @@ switch ($action) {
             if ($errorMsg) {
                 include "../templates/register.php";
             } else {
-                //Créer un new user
+                //Create a new user
                 $newUser = new User();
                 $newUser->nickname = $_POST['username'];
                 $newUser->password = md5($_POST['password']);
@@ -90,7 +70,7 @@ switch ($action) {
             include "../templates/register.php";
         }
         break;
-        break;
+
         //******************LOGOUT
     case 'logout':
         if (isset($_SESSION['user'])) {
@@ -120,7 +100,7 @@ switch ($action) {
         }
         break;
 
-        // CREATE A NEW POST
+        // ************************Create a new post
     case 'new':
         $types = $typeRepo->findAll();
 
@@ -133,28 +113,22 @@ switch ($action) {
             && isset($_POST['type'])
         ) {
             $errorMsg = NULL;
-
+            //image
             if (strlen(trim($_POST['image'])) == 0) {
-                //Show error message
                 $errorMsg = "Please put the URL link of the image";
             } elseif (strlen(trim($_POST['title'])) == 0) {
                 $errorMsg = "Please put a title";
 
-                //artist
+                //description
             } else if (strlen(trim($_POST['description'])) == 0) {
-
                 $errorMsg = "Please write a description";
 
                 //price
             } else if (strlen(trim($_POST['price'])) == 0) {
-
-                //Show error message
                 $errorMsg = "Please set the price";
 
                 //type
             } else if (($_POST['type']) == "-") {
-
-                //Show error message
                 $errorMsg = "Please select a type";
             }
             if ($errorMsg != null) {
@@ -181,6 +155,7 @@ switch ($action) {
         }
         break;
 
+        //****************** Default case
     case 'display':
     default:
         $items = array();
