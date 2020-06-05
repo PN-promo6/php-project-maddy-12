@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Entity\Post;
+use Entity\Type;
 use ludk\Http\Request;
 use ludk\Http\Response;
 use ludk\Controller\AbstractController;
@@ -11,60 +12,67 @@ class PostController extends AbstractController
 {
     public function create(Request $request): Response
     {
-        $typeRepo = $this->getOrm()->getRepository(Type::Class);
+        $typeRepo = $this->getOrm()->getRepository(Type::class);
 
         $manager = $this->getOrm()->getManager();
 
         $types = $typeRepo->findAll();
 
         if (
-            isset($_SESSION['user'])
-            && isset($_POST['image'])
-            && isset($_POST['title'])
-            && isset($_POST['description'])
-            && isset($_POST['price'])
-            && isset($_POST['type'])
+            ($request->getSession()->has('user'))
+            && $request->request->has('image')
+            && $request->request->has('title')
+            && $request->request->has('description')
+            && $request->request->has('price')
+            && $request->request->has('type')
         ) {
             $errorMsg = NULL;
             //image
-            if (strlen(trim($_POST['image'])) == 0) {
+            if (strlen(trim($request->request->get('image'))) == 0) {
                 $errorMsg = "Please put the URL link of the image";
-            } elseif (strlen(trim($_POST['title'])) == 0) {
+            } elseif (strlen(trim($request->request->get('title'))) == 0) {
                 $errorMsg = "Please put a title";
 
                 //description
-            } else if (strlen(trim($_POST['description'])) == 0) {
+            } else if (strlen(trim($request->request->get('description'))) == 0) {
                 $errorMsg = "Please write a description";
 
                 //price
-            } else if (strlen(trim($_POST['price'])) == 0) {
+            } else if (strlen(trim($request->request->get('price'))) == 0) {
                 $errorMsg = "Please set the price";
 
                 //type
-            } else if (($_POST['type']) == "-") {
+            } else if (($request->request->get('type')) == "-") {
                 $errorMsg = "Please select a type";
             }
             if ($errorMsg != null) {
-                include "../templates/new.php";
+                $data = array(
+                    "errorMsg" => $errorMsg,
+                    "types" => $types
+                );
+                return $this->render("new.php", $data);
             } else {
                 //create a new post
                 $newPost = new Post();
-                $currentType = $typeRepo->find($_POST['type']);
-                $newPost->title = $_POST['title'];
-                $newPost->description = $_POST['description'];
-                $newPost->user = $_SESSION['user'];
-                $newPost->price = $_POST['price'];
+                $currentType = $typeRepo->find($request->request->get('type'));
+                $newPost->title = $request->request->get('title');
+                $newPost->description = $request->request->get('description');
+                $newPost->user = $request->getSession()->get('user');
+                $newPost->price = $request->request->get('price');
                 $newPost->type = $currentType;
-                $newPost->image = $_POST['image'];
+                $newPost->image = $request->request->get('image');
                 $newPost->postedTime = time();
 
                 $manager->persist($newPost);
 
                 $manager->flush();
-                header('Location: display');
+                return $this->redirectToRoute('display');
             }
         } else {
-            include "../templates/new.php";
+            $data = array(
+                "types" => $types
+            );
+            return $this->render("new.php", $data);
         }
     }
 }

@@ -12,32 +12,43 @@ class AuthController extends AbstractController
     public function login(Request $request): Response
     {
         $userRepo = $this->getOrm()->getRepository(User::class);
-        if (isset($_POST['username']) && isset($_POST['password'])) {
-            $usersWithThisLogin = $userRepo->findBy(array("nickname" => $_POST['username']));
+        if ($request->request->has('username') && $request->request->has('password')) {
+            $usersWithThisLogin = $userRepo->findBy(array("nickname" => $request->request->get('username')));
+
             if (count($usersWithThisLogin) == 1) {
                 $firstUserWithThisLogin = $usersWithThisLogin[0];
-                if ($firstUserWithThisLogin->password != md5($_POST['password'])) {
+                if ($firstUserWithThisLogin->password != md5($request->request->get('password'))) {
                     $errorMsg = "Wrong password.";
-                    include "../templates/login.php";
+
+                    $data = array(
+                        "errorMsg" => $errorMsg
+                    );
+                    return $this->render("login.php", $data);
                 } else {
-                    $_SESSION['user'] = $usersWithThisLogin[0];
-                    header('Location:/');
+
+                    $request->getSession()->set('user', $usersWithThisLogin[0]);
+                    return $this->redirectToRoute('display');
                 }
             } else {
                 $errorMsg = "Nickname doesn't exist.";
-                include "../templates/login.php";
+
+                $data = array(
+                    "errorMsg" => $errorMsg
+                );
+                return $this->render("login.php", $data);
             }
         } else {
-            include "../templates/login.php";
+            return $this->render("login.php");
         }
     }
 
     public function logout(Request $request): Response
     {
-        if (isset($_SESSION['user'])) {
-            unset($_SESSION['user']);
+
+        if ($request->getSession()->has('user')) {
+            $request->getSession()->remove('user');
         }
-        header('Location: /display');
+        return $this->redirectToRoute('display');
     }
 
     public function register(Request $request): Response
@@ -46,12 +57,12 @@ class AuthController extends AbstractController
         $manager = $this->getOrm()->getManager();
 
         //If user fill the username and password and retypes the correct password
-        if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['passwordRetype'])) {
+        if ($request->request->has('username') && $request->request->has('password') && $request->request->has('passwordRetype')) {
             //Don't show the error message
             $errorMsg = NULL;
             //If the username exists already
-            $users = $userRepo->findBy(array("nickname" => $_POST['username']));
-            $userEmail = $userRepo->findBy(array("email" => $_POST['email']));
+            $users = $userRepo->findBy(array("nickname" => $request->request->get('username')));
+            $userEmail = $userRepo->findBy(array("email" => $request->request->get('email')));
             if (count($users) > 0) {
                 //Show error message
                 $errorMsg = "Username already used.";
@@ -59,40 +70,46 @@ class AuthController extends AbstractController
                 $errorMsg = "E-mail already used.";
 
                 //If the retyped password is diffrent from the pwd filled previously
-            } else if ($_POST['password'] != $_POST['passwordRetype']) {
+            } else if ($request->request->get('password') != $request->request->get('passwordRetype')) {
 
                 //Show error message
                 $errorMsg = "Passwords are not the same.";
 
                 //If the password is too short (less than 8 characters)
-            } else if (strlen(trim($_POST['password'])) < 8) {
+            } else if (strlen(trim($request->request->get('password'))) < 8) {
 
                 //Show error message
                 $errorMsg = "Your password should have at least 8 characters.";
 
                 //if the username is too short ( less than 4 characters)
-            } else if (strlen(trim($_POST['username'])) < 4) {
+            } else if (strlen(trim($request->request->get('username'))) < 4) {
 
                 //Show error message
-                $errorMsg = "Your nickame should have at least 4 characters.";
+                $errorMsg = "Your username should have at least 4 characters.";
             }
 
             if ($errorMsg) {
-                include "../templates/register.php";
+
+                $data = array(
+                    "errorMsg" => $errorMsg
+                );
+                return $this->render("register.php", $data);
             } else {
                 //Create a new user
                 $newUser = new User();
-                $newUser->nickname = $_POST['username'];
-                $newUser->password = md5($_POST['password']);
-                $newUser->email = $_POST['email'];
+                $newUser->nickname = $request->request->get('username');
+                $newUser->password = md5($request->request->get('password'));
+                $newUser->email = $request->request->get('email');
 
                 $manager->persist($newUser);
                 $manager->flush();
-                $_SESSION['user'] = $user;
-                header('Location: /display');
+
+                $request->getSession()->set('user', $newUser);
+                return $this->redirectToRoute('display');
             }
         } else {
-            include "../templates/register.php";
+
+            return $this->render("register.php");
         }
     }
 }

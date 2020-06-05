@@ -2,6 +2,8 @@
 
 namespace Controller;
 
+use Entity\Post;
+use Entity\User;
 use ludk\Http\Request;
 use ludk\Http\Response;
 use ludk\Controller\AbstractController;
@@ -15,10 +17,9 @@ class HomeController extends AbstractController
         $postRepo = $this->getOrm()->getRepository(Post::class);
 
         $items = array();
+        if ($request->query->has('search')) {
 
-        if (isset($_GET['search'])) {
-            $search = $_GET['search'];
-
+            $search = $request->query->get('search');
             if (strpos($search, "@") === 0) {
 
                 //permet de decider quelle partie du string on veut passer en url
@@ -35,6 +36,10 @@ class HomeController extends AbstractController
         } else {
             $items = $postRepo->findAll();
         }
-        include '../templates/display.php';
+
+        $data = array(
+            "items" => $items
+        );
+        return $this->render("display.php", $data);
     }
 }

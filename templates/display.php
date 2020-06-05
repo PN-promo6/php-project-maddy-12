@@ -21,7 +21,7 @@
                     <img src="../assets/logo.png" alt="">
                 </a>
             </div>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse text-right" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <form class="nav-link" method="get">
