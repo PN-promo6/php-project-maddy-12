@@ -10,9 +10,10 @@ class HomeController extends AbstractController
 {
     public function display(Request $request): Response
     {
-        global $userRepo;
-        global $typeRepo;
-        global $postRepo;
+        $userRepo = $this->getOrm()->getRepository(User::class);
+
+        $postRepo = $this->getOrm()->getRepository(Post::class);
+
         $items = array();
 
         if (isset($_GET['search'])) {

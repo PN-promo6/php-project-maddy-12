@@ -11,9 +11,9 @@ class PostController extends AbstractController
 {
     public function create(Request $request): Response
     {
-        global $typeRepo;
+        $typeRepo = $this->getOrm()->getRepository(Type::Class);
 
-        global $manager;
+        $manager = $this->getOrm()->getManager();
 
         $types = $typeRepo->findAll();
 

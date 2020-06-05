@@ -11,7 +11,7 @@ class AuthController extends AbstractController
 {
     public function login(Request $request): Response
     {
-        global $userRepo;
+        $userRepo = $this->getOrm()->getRepository(User::class);
         if (isset($_POST['username']) && isset($_POST['password'])) {
             $usersWithThisLogin = $userRepo->findBy(array("nickname" => $_POST['username']));
             if (count($usersWithThisLogin) == 1) {
@@ -42,8 +42,9 @@ class AuthController extends AbstractController
 
     public function register(Request $request): Response
     {
-        global $userRepo;
-        global $manager;
+        $userRepo = $this->getOrm()->getRepository(User::class);
+        $manager = $this->getOrm()->getManager();
+
         //If user fill the username and password and retypes the correct password
         if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['passwordRetype'])) {
             //Don't show the error message
