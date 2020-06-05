@@ -22,7 +22,12 @@
 
                 <h1> Add a new post </h1>
 
-                <form class="mt-5" method="$_POST" action="?action=new">
+                <form class="mt-5" method="post" action="?action=new">
+                    <?php
+                    if (isset($errorMsg)) {
+                        echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";
+                    }
+                    ?>
                     <div class="form-group">
                         <label for="image">The URL link of your image</label>
                         <input type="url" class="form-control" name="image" placeholder="Put the link to your illustration here">
@@ -49,9 +54,10 @@
                     <select name="type" class="form-control mb-4">
                         <option value="-">Select a type</option>
                         <?php
+
                         foreach ($types as $oneType) {
                         ?>
-                            <option value="<?= $oneType->id ?>" <?= $oneType->name ?>></option>
+                            <option value="<?= $oneType->id ?>"> <?= $oneType->name ?></option>
                         <?php
                         }
                         ?>

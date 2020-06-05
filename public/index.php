@@ -134,8 +134,6 @@ switch ($action) {
             && isset($_POST['type'])
         ) {
             $errorMsg = NULL;
-            //If the username exists already
-            $users = $userRepo->findBy(array("nickname" => $_POST['username']));
 
             if (strlen(trim($_POST['image'])) == 0) {
                 //Show error message
@@ -164,11 +162,12 @@ switch ($action) {
                 //Show error message
                 $errorMsg = "Please select a type";
             }
-            if ($errorMsg) {
+            if ($errorMsg == null) {
                 include "../templates/new.php";
             } else {
                 //create a new post
                 $newPost = new Post();
+
                 $newPost->title = $_POST['title'];
                 $newPost->description = $_POST['description'];
                 $newPost->artist = $post->user;
