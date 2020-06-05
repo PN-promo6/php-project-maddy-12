@@ -2,9 +2,13 @@
 
 namespace Controller;
 
-class HomeController
+use ludk\Http\Request;
+use ludk\Http\Response;
+use ludk\Controller\AbstractController;
+
+class HomeController extends AbstractController
 {
-    public function display()
+    public function display(Request $request): Response
     {
         global $userRepo;
         global $typeRepo;

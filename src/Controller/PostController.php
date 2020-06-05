@@ -3,10 +3,13 @@
 namespace Controller;
 
 use Entity\Post;
+use ludk\Http\Request;
+use ludk\Http\Response;
+use ludk\Controller\AbstractController;
 
-class PostController
+class PostController extends AbstractController
 {
-    public function create()
+    public function create(Request $request): Response
     {
         global $typeRepo;
 

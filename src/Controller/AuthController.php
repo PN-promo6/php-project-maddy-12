@@ -3,10 +3,13 @@
 namespace Controller;
 
 use Entity\User;
+use ludk\Http\Request;
+use ludk\Http\Response;
+use ludk\Controller\AbstractController;
 
-class AuthController
+class AuthController extends AbstractController
 {
-    public function login()
+    public function login(Request $request): Response
     {
         global $userRepo;
         if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -29,7 +32,7 @@ class AuthController
         }
     }
 
-    public function logout()
+    public function logout(Request $request): Response
     {
         if (isset($_SESSION['user'])) {
             unset($_SESSION['user']);
@@ -37,7 +40,7 @@ class AuthController
         header('Location: /display');
     }
 
-    public function register()
+    public function register(Request $request): Response
     {
         global $userRepo;
         global $manager;
