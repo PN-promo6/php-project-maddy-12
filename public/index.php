@@ -182,6 +182,8 @@ switch ($action) {
                 $manager->flush();
                 header('Location: ?action=display');
             }
+        } else {
+            include "../templates/new.php";
         }
         break;
 

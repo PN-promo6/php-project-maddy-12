@@ -31,10 +31,10 @@
                         <label for="title">Title</label>
                         <input type="text" class="form-control" name="title" placeholder="Another input placeholder">
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="artist">Artist</label>
                         <input type="text" class="form-control" name="artist" placeholder="Another input placeholder">
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <label for="description">Description</label>
@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="price">Price</label>
+                        <label for="price">Tarifs</label>
                         <input type="text" class="form-control" name="price" placeholder="Another input placeholder">
                     </div>
                     <label>Illustration type</label>
