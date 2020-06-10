@@ -88,7 +88,7 @@
 
                         </div>
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <button type="button" class="btn btn-dark">Contact me</button>
+                        <button type="button" class="btn btn-info">Contact me</button>
 
                     </div>
                 </div>
