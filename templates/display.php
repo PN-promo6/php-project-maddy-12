@@ -37,7 +37,7 @@
                             <a class="nav-link" href="/logout" role="button">Logout</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="/new" role="button">+</a>
+                            <a class="nav-link " href="/new" role="button">Add new post</a>
                         </li>
                     <?php
                         //If not logged in -> show the login & suign up buttons
