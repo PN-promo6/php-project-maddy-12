@@ -7,17 +7,17 @@
         "description": "Illustration done for a client who wanted to use it as gift last month",
         "postedTime": "time()",
         "type": 1,
-        "price": "25€"
+        "price": "49€"
     },
     {
         "id": 2,
         "user": 2,
-        "title": "Maison",
+        "title": "Country side house",
         "image": "https://cdn.pixabay.com/photo/2015/03/30/11/01/paintings-698290_960_720.jpg",
-        "description": "Illustration done for a client who wanted to use it as gift last month",
+        "description": "I was inspired by the beautifull landscapes when visiting the country side in Austria",
         "postedTime": "time()",
         "type": 2,
-        "price": "35€"
+        "price": "50€"
     },
     {
         "id": 3,
@@ -27,7 +27,7 @@
         "description": "Illustration done for a client who wanted to use it as gift last month",
         "postedTime": "time()",
         "type": 3,
-        "price": "15€"
+        "price": "35€"
     },
     {
         "id": 4,
@@ -37,66 +37,66 @@
         "description": "Illustration done for a client who wanted to use it as gift last month",
         "postedTime": "time()",
         "type": 1,
-        "price": "25€"
+        "price": "64€"
     },
     {
         "id": 5,
         "user": 5,
-        "title": "Maison",
-        "image": "https://cdn.pixabay.com/photo/2015/03/30/11/01/paintings-698290_960_720.jpg",
-        "description": "Illustration done for a client who wanted to use it as gift last month",
+        "title": "Abstract",
+        "image": "https://p0.piqsels.com/preview/440/79/682/abstract-oil-painting-acrylic-art-artwork.jpg",
+        "description": "Everything has a meaning to its owner, even abstract things",
         "postedTime": "time()",
         "type": 2,
-        "price": "35€"
+        "price": "110€"
     },
     {
         "id": 6,
         "user": 6,
-        "title": "Music",
-        "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4cf9906a-ff47-41e0-9b64-a1f1773044a4/d7k903e-55edefc7-e41c-4b6c-9cf5-d27189689301.jpg/v1/fill/w_600,h_450,q_75,strp/music_pulse_by_ritsu_mady_d7k903e-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDUwIiwicGF0aCI6IlwvZlwvNGNmOTkwNmEtZmY0Ny00MWUwLTliNjQtYTFmMTc3MzA0NGE0XC9kN2s5MDNlLTU1ZWRlZmM3LWU0MWMtNGI2Yy05Y2Y1LWQyNzE4OTY4OTMwMS5qcGciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.V52E3JMtSzFD8fbDNt8csROujc3HNJA4C-p4TTnwzNY",
-        "description": "Illustration done for a client who wanted to use it as gift last month",
+        "title": "African sunset",
+        "image": "https://i.pinimg.com/originals/bf/60/32/bf6032a56fd43eb3e93788ceb532e9f0.jpg",
+        "description": "The most beautiful sunset in the world",
         "postedTime": "time()",
         "type": 3,
-        "price": "15€"
+        "price": "70.99€"
     },
     {
         "id": 7,
         "user": 7,
-        "title": "Lady",
-        "image": "https://cdn.pixabay.com/photo/2017/04/02/16/58/man-2196323_960_720.jpg",
-        "description": "Illustration done for a client who wanted to use it as gift last month",
+        "title": "Glass bottles",
+        "image": "https://images.pexels.com/photos/973229/pexels-photo-973229.jpeg?cs=srgb&dl=abstract-bottles-expressionistic-pastels-vibrant-color-973229.jpg&fm=jpg",
+        "description": "Simple, but interesting",
         "postedTime": "time()",
-        "type": 1,
-        "price": "25€"
+        "type": 5,
+        "price": "83€"
     },
     {
         "id": 8,
         "user": 8,
-        "title": "Maison",
-        "image": "https://cdn.pixabay.com/photo/2015/03/30/11/01/paintings-698290_960_720.jpg",
-        "description": "Illustration done for a client who wanted to use it as gift last month",
+        "title": "Bird",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTV6KPRjh8N8gd_9aUpcce04hSPkItanHjN_kk4g8yg8M7Ql6lD&usqp=CAU",
+        "description": "Beautiful creature",
         "postedTime": "time()",
-        "type": 2,
-        "price": "35€"
+        "type": 1,
+        "price": "95€"
     },
     {
         "id": 9,
         "user": 9,
-        "title": "Music",
-        "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4cf9906a-ff47-41e0-9b64-a1f1773044a4/d7k903e-55edefc7-e41c-4b6c-9cf5-d27189689301.jpg/v1/fill/w_600,h_450,q_75,strp/music_pulse_by_ritsu_mady_d7k903e-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDUwIiwicGF0aCI6IlwvZlwvNGNmOTkwNmEtZmY0Ny00MWUwLTliNjQtYTFmMTc3MzA0NGE0XC9kN2s5MDNlLTU1ZWRlZmM3LWU0MWMtNGI2Yy05Y2Y1LWQyNzE4OTY4OTMwMS5qcGciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.V52E3JMtSzFD8fbDNt8csROujc3HNJA4C-p4TTnwzNY",
-        "description": "Illustration done for a client who wanted to use it as gift last month",
+        "title": "World",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Example_of_spray_paint_art_Spray_paint_art_%26Spray_paint_lessons_by_Yannis_Koutras_%28YannisArt%29.jpg",
+        "description": "The mix of what makes the world we live in",
         "postedTime": "time()",
-        "type": 3,
-        "price": "15€"
+        "type": 6,
+        "price": "220€"
     },
     {
         "id": 10,
         "user": 10,
-        "title": "Music",
-        "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4cf9906a-ff47-41e0-9b64-a1f1773044a4/d7k903e-55edefc7-e41c-4b6c-9cf5-d27189689301.jpg/v1/fill/w_600,h_450,q_75,strp/music_pulse_by_ritsu_mady_d7k903e-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDUwIiwicGF0aCI6IlwvZlwvNGNmOTkwNmEtZmY0Ny00MWUwLTliNjQtYTFmMTc3MzA0NGE0XC9kN2s5MDNlLTU1ZWRlZmM3LWU0MWMtNGI2Yy05Y2Y1LWQyNzE4OTY4OTMwMS5qcGciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.V52E3JMtSzFD8fbDNt8csROujc3HNJA4C-p4TTnwzNY",
-        "description": "Illustration done for a client who wanted to use it as gift last month",
+        "title": "Mix colors",
+        "image": "https://p0.piqsels.com/preview/594/334/328/abstract-expressionism-abstract-painting-acrylic-acrylic-paint-thumbnail.jpg",
+        "description": "Abstract painting",
         "postedTime": "time()",
-        "type": 3,
-        "price": "15€"
+        "type": 2,
+        "price": "120€"
     }
 ]
